@@ -1,0 +1,10 @@
+// Block: .app (on the host element). Layout styles of the shell go here, BEM with SCSS nesting:
+//
+// :host { display: block; }
+// .app {
+//   &__header { ... }
+//   &__content { ... }
+// }
+:host {
+  display: block;
+}

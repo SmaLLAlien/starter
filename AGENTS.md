@@ -18,7 +18,8 @@ src/
     <feature>/              one folder per feature/page: component, service, spec
   theme.scss                Angular Material 3 theme (company colour #4ea524, light/dark)
   _theme-colors.scss        generated palettes — regenerate, do not edit by hand
-  styles.css                global styles (use Material system tokens --mat-sys-*)
+  styles.scss               global styles (use Material system tokens --mat-sys-*)
+  styles/_mixins.scss       shared SCSS mixins (focus-ring, ellipsis, button-reset)
 public/                     static assets copied as is
 server/                     separate npm package (own package.json and node_modules)
   src/index.ts              http server start
@@ -49,7 +50,10 @@ docs/                       project docs: PLAN.md — current plan, DECISIONS.md
   `<mat-icon>` with Material Symbols. Do not hand-roll a component Material already has.
 - Components: standalone (do not write `standalone: true`), `changeDetection: OnPush`, `input()` /
   `output()`, signals and `computed()`, native control flow (`@if`, `@for`), `inject()`.
-- One component per folder under its feature; small components may use inline templates.
+- One component per folder under its feature, each with its own `.ts`, `.html`, `.scss`, `.spec.ts`.
+- **Templates and styles: follow [.agents/rules/component-templates-and-styles.md](.agents/rules/component-templates-and-styles.md).**
+  Every component has its own `.html` (`templateUrl`) and `.scss` (`styleUrl`) — never inline. Styles are
+  BEM with SCSS nesting: block class on the host (`host: { class: 'block' }`), `&__element`, `&--modifier`.
 - Styles: colours and typography only from the theme — Material system tokens (`var(--mat-sys-primary)`,
   `--mat-sys-surface`, `--mat-sys-on-surface`, `--mat-sys-body-large`…), never hard-coded colours, so the
   light/dark theme keeps working. Component styles only for layout of that component.

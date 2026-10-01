@@ -6,12 +6,12 @@ description: Use when adding a new page/screen to the app. Creates a lazy-loaded
 # Add a page
 
 1. Pick a kebab-case feature name, e.g. `about`. The page lives in `src/app/about/`.
-2. Generate the component (creates `about-page.ts`, `.html`, `.css`, `.spec.ts`):
+2. Generate the component (creates `about-page.ts`, `.html`, `.scss`, `.spec.ts`):
    ```bash
    npx ng generate component about/about-page --change-detection OnPush
    ```
-   Remove `standalone: true` if the generator added it. Delete the `.css` file if it stays empty and
-   drop `styleUrl`.
+   Remove `standalone: true` if the generator added it. Keep the generated `.html` and `.scss` (never inline
+   templates or styles) and add the BEM block class on the host: `host: { class: 'about-page' }`.
 3. Register a lazy route in `src/app/app.routes.ts`:
    ```ts
    { path: 'about', title: 'About', loadComponent: () => import('./about/about-page').then((m) => m.AboutPage) },
