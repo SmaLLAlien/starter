@@ -12,7 +12,7 @@ the task explicitly requires it.
 ```
 src/
   app/
-    app.ts, app.html        root component (layout, <router-outlet />)
+    app.ts, app.html        root component: an empty shell (<router-outlet />) — build the layout here
     app.routes.ts           routes — every page is lazy-loaded
     app.config.ts           application providers
     <feature>/              one folder per feature/page: component, service, spec
@@ -62,4 +62,4 @@ docs/                       project docs: PLAN.md — current plan, DECISIONS.md
 
 - `npm run build` passes without errors.
 - `npm test -- --watch=false` passes; new components/services get a spec that at least creates them.
-- No leftover placeholder content from the starter (the default Angular welcome page is removed).
+- The starter ships an empty shell: the app's layout goes into `app.html`, pages into lazy routes.
