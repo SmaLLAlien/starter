@@ -19,6 +19,8 @@ description: Use when adding a new page/screen to the app. Creates a lazy-loaded
    Keep a default route (`path: ''`) and, if the app has several pages, a `**` route redirecting to it.
 4. Add a link in the navigation (usually the header component) with `routerLink="/about"` and
    `routerLinkActive` for the current page; import `RouterLink`/`RouterLinkActive` in that component.
-5. Page content: one `<h1>` per page, semantic sections, texts from the plan. Data goes into a service
-   in the same feature folder (`about.service.ts`, `providedIn: 'root'`).
+5. Page content: one `<h1>` per page, semantic sections, texts from the plan. UI elements are Angular
+   Material components (`mat-card`, `mat-list`, `mat-button`, `mat-form-field`…); colours only through
+   `--mat-sys-*` tokens. Data goes into a service in the same feature folder (`about.service.ts`,
+   `providedIn: 'root'`).
 6. Verify: `npm run build`, `npm test -- --watch=false`.
